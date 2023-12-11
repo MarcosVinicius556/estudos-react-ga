@@ -2,12 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Row, Col, Card, Button } from 'react-bootstrap';
 import { DiGoogleAnalytics } from "react-icons/di";
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 /**
  * Inicializando monitoramento do Google Analytics
  */
-const TRACKING_ID = "UA-295832750-1";
+const TRACKING_ID = "G-HTKJVYHNC1";
 
 ReactGA.initialize(TRACKING_ID);
 

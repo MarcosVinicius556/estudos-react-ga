@@ -17,7 +17,8 @@ function App() {
    * Sem interação, apenas verifica que entrou nesta página
    */
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
+    // Send pageview with a custom path
+    ReactGA.send({ hitType: "pageview", page: "/", title: "Acesso a página principal da aplicação" });
   }, []);
 
   /**

@@ -7,7 +7,7 @@ import ReactGA from 'react-ga';
 /**
  * Inicializando monitoramento do Google Analytics
  */
-const TRACKING_ID = "G-W1XXL07CCW";
+const TRACKING_ID = "UA-295832750-1";
 
 ReactGA.initialize(TRACKING_ID);
 

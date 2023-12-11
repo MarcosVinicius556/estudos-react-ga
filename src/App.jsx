@@ -1,9 +1,43 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Row, Col, Card, Button } from 'react-bootstrap';
 import { DiGoogleAnalytics } from "react-icons/di";
+import { useEffect } from 'react';
+import ReactGA from 'react-ga';
+
+/**
+ * Inicializando monitoramento do Google Analytics
+ */
+const TRACKING_ID = "G-W1XXL07CCW";
+
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
 
+  /**
+   * Sem interação, apenas verifica que entrou nesta página
+   */
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
+  /**
+   * Monitorando diferentes eventos com Google Analytics....
+   */
+  const handleSelectCard = (option) => {
+    if(option === 1) {
+      ReactGA.event({
+        category: 'option 1',
+        action: 'test action',
+        label: 'test label'
+      });
+    } else {
+      ReactGA.event({
+        category: 'option 2',
+        action: 'test action 2',
+        label: 'test label 2'
+      });
+    }
+  }
 
   return (
     <>
@@ -25,7 +59,7 @@ function App() {
                   <Card.Text>
                     Opção 1 (Me escolhe ai vai!)
                   </Card.Text>
-                  <Button variant="primary">Me escolher!</Button>
+                  <Button variant="primary" onClick={() => handleSelectCard(1)}>Me escolher!</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -36,7 +70,7 @@ function App() {
                   <Card.Text>
                     Opção 2 (Posso ser melhor!)
                   </Card.Text>
-                  <Button variant="primary">Me escolher!</Button>
+                  <Button variant="primary" onClick={() => handleSelectCard(2)}>Me escolher!</Button>
                 </Card.Body>
               </Card>
             </Col>
